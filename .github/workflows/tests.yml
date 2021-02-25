@@ -1,4 +1,4 @@
-name: github-actions-tests
+name: Tests
 on: [push]
 jobs:
   builds:
@@ -18,8 +18,3 @@ jobs:
         run: pip install tox
       - name: Run Tox
         run: tox -e py
-      - name: Python Poetry Action
-        uses: abatilo/actions-poetry@v2.1.0
-        with:
-          poetry-version: ${{ matrix.poetry-version }}
-
