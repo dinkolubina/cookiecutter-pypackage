@@ -141,11 +141,11 @@ def test_bake_and_run_tests(cookies, extra_context):
 #             result_travis_config["deploy"]["password"]["secure"]
 #         ) > min_size_of_encrypted_password
 
-
+@pytest.mark.skip(reason="Needs to be updated after publishing to Pypi is done with github actions")
 def test_bake_without_travis_pypi_setup(cookies):
     with bake_in_temp_dir(
         cookies,
-        extra_context={'use_pypi_deployment_with_travis': 'n'}
+        extra_context={'use_pypi_deployment_github_actions': 'n'}
     ) as result:
         result_travis_config = yaml.load(
             result.project.join(".travis.yml").open(),
